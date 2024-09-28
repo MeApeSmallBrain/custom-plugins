@@ -1,4 +1,4 @@
-package net.runelite.client.plugins.fungusLooter;
+package net.runelite.client.plugins.prayerPOH;
 
 import com.openosrs.client.ui.overlay.components.table.TableAlignment;
 import com.openosrs.client.ui.overlay.components.table.TableComponent;
@@ -20,30 +20,30 @@ import net.runelite.client.util.ColorUtil;
 import static org.apache.commons.lang3.time.DurationFormatUtils.formatDuration;
 
 @Singleton
-class fungusLooterOverlay extends OverlayPanel
+class prayerPOHOverlay extends OverlayPanel
 {
 	private final Client client;
-	private final fungusLooterPlugin plugin;
-	private final fungusLooterConfig config;
+	private final prayerPOHPlugin plugin;
+	private final prayerPOHConfig config;
 
 	String timeFormat;
 	private String infoStatus = "Starting...";
 
 	@Inject
-	private fungusLooterOverlay(final Client client, final fungusLooterPlugin plugin, final fungusLooterConfig config)
+	private prayerPOHOverlay(final Client client, final prayerPOHPlugin plugin, final prayerPOHConfig config)
 	{
 		super(plugin);
 		setPosition(OverlayPosition.BOTTOM_LEFT);
 		this.client = client;
 		this.plugin = plugin;
 		this.config = config;
-		getMenuEntries().add(new OverlayMenuEntry(RUNELITE_OVERLAY_CONFIG, OPTION_CONFIGURE, "Fungus Looter"));
+		getMenuEntries().add(new OverlayMenuEntry(RUNELITE_OVERLAY_CONFIG, OPTION_CONFIGURE, "Prayer - POH"));
 	}
 
 	@Override
 	public Dimension render(Graphics2D graphics)
 	{
-		if (plugin.botTimer == null || !plugin.startBot || !config.enableUI())
+		if (plugin.botTimer == null || !plugin.startPlugin || !config.enableUI())
 		{
 			return null;
 		}
@@ -69,7 +69,7 @@ class fungusLooterOverlay extends OverlayPanel
 			panelComponent.setPreferredSize(new Dimension(200, 200));
 			panelComponent.setBorder(new Rectangle(5, 5, 5, 5));
 			panelComponent.getChildren().add(TitleComponent.builder()
-				.text("Fungus Looter")
+				.text("Prayer - POH")
 				.color(ColorUtil.fromHex("#00FFA0"))
 				.build());
 			panelComponent.getChildren().add(tableComponent);

@@ -23,14 +23,14 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.1.5"
+version = "1.0.11"
 
-project.extra["PluginName"] = "Fungus Looter"
-project.extra["PluginDescription"] = "Loots fungus, uses ardy cape to restore prayer, banks at zanaris."
+project.extra["PluginName"] = "Prayer - POH"
+project.extra["PluginDescription"] = "Shieldeh - Prayer plugin. Handles entering a POH you've already visited once, unnoting all bones, and efficiently using them on the altar."
 project.extra["ProjectUrl"] = "https://discord.gg/2j7aQQA8RA"
 
 dependencies {
-    compileOnly(group = "com.openosrs.externals", name = "iutils", version = "4.3.1")
+    compileOnly(group = "com.openosrs.externals", name = "iutils", version = "2.3.6+")
     compileOnly(group = "com.owain.externals", name = "chinbreakhandler", version = "0.0.16+")
 }
 

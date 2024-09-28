@@ -23,7 +23,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package net.runelite.client.plugins.fungusLooter;
+package net.runelite.client.plugins.prayerPOH;
 
 import net.runelite.client.config.Button;
 import net.runelite.client.config.Config;
@@ -32,8 +32,8 @@ import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 import net.runelite.client.config.Range;
 
-@ConfigGroup("fungusLooter")
-public interface fungusLooterConfig extends Config
+@ConfigGroup("prayerPOH")
+public interface prayerPOHConfig extends Config
 {
 
 	@ConfigSection(
@@ -120,7 +120,6 @@ public interface fungusLooterConfig extends Config
 		return false;
 	}
 
-
 	@ConfigSection(
 		keyName = "delayTickConfig",
 		name = "Game Tick Configuration",
@@ -130,7 +129,7 @@ public interface fungusLooterConfig extends Config
 	String delayTickConfig = "delayTickConfig";
 
 	@Range(
-		min = 1,
+		min = 0,
 		max = 25
 	)
 	@ConfigItem(
@@ -146,7 +145,7 @@ public interface fungusLooterConfig extends Config
 	}
 
 	@Range(
-		min = 1,
+		min = 0,
 		max = 30
 	)
 	@ConfigItem(
@@ -162,7 +161,7 @@ public interface fungusLooterConfig extends Config
 	}
 
 	@Range(
-		min = 1,
+		min = 0,
 		max = 30
 	)
 	@ConfigItem(
@@ -178,7 +177,7 @@ public interface fungusLooterConfig extends Config
 	}
 
 	@Range(
-		min = 1,
+		min = 0,
 		max = 30
 	)
 	@ConfigItem(
@@ -203,6 +202,28 @@ public interface fungusLooterConfig extends Config
 	default boolean tickDelayWeightedDistribution()
 	{
 		return false;
+	}
+
+	@ConfigItem(
+		keyName = "bones",
+		name = "Bone Type",
+		description = "Select the bone to use",
+		position = 27
+	)
+	default Bones bones()
+	{
+		return Bones.DRAGON;
+	}
+
+	@ConfigItem(
+		keyName = "logout",
+		name = "Logout when plugin ends",
+		description = "Enable to logout when the plugin ends.",
+		position = 28
+	)
+	default boolean logout()
+	{
+		return true;
 	}
 
 	@ConfigItem(
